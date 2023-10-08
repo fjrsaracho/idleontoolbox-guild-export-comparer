@@ -5,7 +5,7 @@ const titles = ["date","name","old value","current value","diff"];
 const style = {
     backgroundColor: "var(--color-box-background)",
     border: "2px solid var(--color-box-border)",
-    height: "400px",
+    minHeight: "400px",
     margin: "30px"
 }
 
