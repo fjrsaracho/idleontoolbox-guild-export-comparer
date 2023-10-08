@@ -2,7 +2,7 @@ import './assets/style.css';
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header";
-import Index from "./layout/comparer";
+import Index from "./layout/comparer/Index";
 
 
 function App() {
