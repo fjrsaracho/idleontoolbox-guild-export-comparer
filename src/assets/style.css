@@ -1,0 +1,39 @@
+:root {
+    --color-primary: #fcebeb;
+    --color-body-background: #211c3d;
+    --color-menu-title: #130a1a;
+    --color-box-background: #130a1a;
+    --color-box-border: #dac098;
+    --color-table-head-background: #211c3d;
+    --color-table-row-background-ok: #365235;
+    --color-table-row-background: #7a63ea;
+    --color-table-row-background-error: #802730;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--color-primary);
+    background-color: var(--color-body-background);
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.app-header {
+
+}
+
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
