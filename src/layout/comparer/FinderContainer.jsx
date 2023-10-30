@@ -1,4 +1,4 @@
-import { prepareSpreadsheetData } from '../../services/spreadsheetDataRetrieveService'
+import { extractGP } from '../../services/spreadsheetDataRetrieveService'
 
 const style = {
     "finder": {
@@ -32,14 +32,16 @@ const style = {
 }
 
 function FinderContainer({ setData }) {
-    const handleClickButton = async () => {
-        const spI = await prepareSpreadsheetData();
+    const handleClickButton = async (guild) => {
+        const spI = await extractGP(guild);
         setData(spI);
     }
 
     return <div>
         <div style={style.buttonBox}>
-            <button style={style.button} onClick={handleClickButton}>Get Guildmember GP</button>
+            <button style={style.button} onClick={() => handleClickButton('Zen 1')}>Idlezen 1</button>
+            <button style={style.button} onClick={() => handleClickButton('Zen 2')}>Idlezen 2</button>
+            <button style={style.button} onClick={() => handleClickButton('Zen 3')}>Idlezen 3</button>
         </div>
     </div>
 }
