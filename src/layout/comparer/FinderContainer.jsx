@@ -1,11 +1,7 @@
-import TextArea from "../../components/TextArea";
-import mock from "../../mock";
-import compare from "../../services/idleonGuildDataComparer";
-import {useEffect} from "react";
-
+import { prepareSpreadsheetData } from '../../services/spreadsheetDataRetrieveService'
 
 const style = {
-    "finder" : {
+    "finder": {
         display: "flex",
         flexDirection: "column",
         border: "2px solid var(--color-box-border)",
@@ -25,48 +21,27 @@ const style = {
         height: "10em"
     },
     "buttonBox": {
-        display:"flex",
+        display: "flex",
         justifyContent: "center",
         marginBottom: "1em"
     },
     "button": {
+        height: "5em",
         width: "80%"
     }
 }
 
 function FinderContainer({ setData }) {
-    useEffect(() => {
-        //fillDataAndCompareIfDebug()
-    }, []);
-
-    const fillDataAndCompareIfDebug = () => {
-        if (process.env.NODE_ENV !== 'development') {
-            return;
-        }
-        document.getElementById("old").value = JSON.stringify(mock.oldData)
-        document.getElementById("current").value = JSON.stringify(mock.currentData)
-
-        handleClickButton()
+    const handleClickButton = async () => {
+        const spI = await prepareSpreadsheetData();
+        setData(spI);
     }
 
-    const handleClickButton = () => {
-        let value =  compare(document.getElementById("old").value,
-            document.getElementById("current").value);
-        if (value) setData(value);
-    }
-
-return <div style={style.finder}>
-    <div style={style.areaBox}>
-        <label htmlFor="old" style={style.label}>Old</label>
-        <TextArea placeholder="Insert old data here" style={style.textArea} id="old" />
-        <label htmlFor="current">Current</label>
-        <TextArea placeholder="Insert current data here" style={style.textArea} id="current" />
+    return <div>
+        <div style={style.buttonBox}>
+            <button style={style.button} onClick={handleClickButton}>Get Guildmember GP</button>
+        </div>
     </div>
-    <div style={style.buttonBox}>
-        <button style={style.button} onClick={handleClickButton}>Compare</button>
-    </div>
-</div>
-
 }
 
 export default FinderContainer;
